@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Test Page</title>
+
+		<meta name="description" content="3 styles with inline editable feature" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<!-- basic styles -->
+
+		<link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+		
+	</head>
+
+	<body>
+	
+		<div class="navbar navbar-default" id="navbar">			
+			<div class="container" >
+				
+
+				<div class="navbar-header pull-right" role="navigation">
+					<ul class="nav">
+							
+						<li >
+							<a  href="#" th:href="@{#/__${user.profileid}__}" class="dropdown-toggle">
+								
+								<span >
+								    <small> Hello, </small>
+									<small th:text="${user.firstname}"> Subash</small>									
+								</span>
+
+								<i class="icon-caret-down"></i>
+							</a>
+						</li>
+						<li>
+							  <a href="/applogout" th:href="@{/applogout}">
+								<i class="icon-off"></i>
+								Logout
+							  </a>
+						</li>
+						
+						
+					</ul><!-- /.ace-nav -->
+				</div><!-- /.navbar-header -->
+			</div><!-- /.container -->
+		</div>
+
+		
+		<!-- basic scripts -->
+		<script src="assets/js/jquery-2.0.3.min.js"></script>
+		<script src="assets/js/bootstrap.min.js"></script>
+		
+
+		<script type="text/javascript">
+			jQuery(function($) {
+				
+			
+				
+
+			});
+		</script>
+	</body>
+</html>
