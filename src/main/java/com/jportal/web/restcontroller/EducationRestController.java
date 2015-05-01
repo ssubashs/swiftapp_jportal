@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.jportal.model.Education;
+import com.jportal.model.Profile;
 import com.jportal.service.EducationRepo;
+import com.jportal.service.ProfileRepo;
 
 
 
@@ -20,22 +22,29 @@ public class EducationRestController
 	@Autowired
 	private EducationRepo repository;
 	
-	@RequestMapping(method = RequestMethod.POST)
+	@Autowired
+	private ProfileRepo profileRepo;
+	
+	@RequestMapping(value = "/{profileId}",method = RequestMethod.POST)
 	@ResponseBody
-	public Education newEducation(@RequestBody Education Education) 
+	public Education newEducation(@RequestBody Education education,@PathVariable Integer profileId) 
 	{
-		return repository.save(Education);
+		
+		Profile profile = profileRepo.findOne(profileId);
+		education.setProfile(profile);
+		
+		return repository.save(education);
 	}
 	
 	/**
 	 * Select an existing Education entity
 	 * 
 	 */
-	@RequestMapping(value = "/{EducationId}", method = RequestMethod.GET)
+	@RequestMapping(value = "/{educationId}", method = RequestMethod.GET)
 	@ResponseBody
-	public Education loadEducation(@PathVariable Integer EducationId) {
+	public Education loadEducation(@PathVariable Integer educationId) {
 		
-		return repository.findOne(EducationId);
+		return repository.findOne(educationId);
 	}
 		
 
@@ -43,11 +52,11 @@ public class EducationRestController
 	 * Delete an existing Education entity
 	 * 
 	 */
-	@RequestMapping(value = "/{EducationId}", method = RequestMethod.DELETE)
+	@RequestMapping(value = "/{educationId}", method = RequestMethod.DELETE)
 	@ResponseBody
-	public void deleteEducation(@PathVariable Integer EducationId) {
+	public void deleteEducation(@PathVariable Integer educationId) {
 	
-		repository.delete(EducationId);
+		repository.delete(educationId);
 	}
 
 

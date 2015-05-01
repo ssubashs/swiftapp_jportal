@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.jportal.model.Experience;
+import com.jportal.model.Profile;
 import com.jportal.service.ExperienceRepo;
+import com.jportal.service.ProfileRepo;
 
 
 
@@ -20,11 +22,16 @@ public class ExperienceRestController
 	@Autowired
 	private ExperienceRepo repository;
 	
-	@RequestMapping(method = RequestMethod.POST)
+	@Autowired
+	private ProfileRepo profileRepo;
+	
+	@RequestMapping(value = "/{profileId}",method = RequestMethod.POST)
 	@ResponseBody
-	public Experience newprofile(@RequestBody Experience profile) 
+	public Experience newexperience(@RequestBody Experience experience,@PathVariable Integer profileId) 
 	{
-		return repository.save(profile);
+		Profile profile = profileRepo.findOne(profileId);
+		experience.setProfile(profile);
+		return repository.save(experience);
 	}
 	
 	/**
@@ -33,7 +40,7 @@ public class ExperienceRestController
 	 */
 	@RequestMapping(value = "/{experienceId}", method = RequestMethod.GET)
 	@ResponseBody
-	public Experience loadprofile(@PathVariable Integer experienceId) {
+	public Experience loadexperience(@PathVariable Integer experienceId) {
 		
 		return repository.findOne(experienceId);
 	}
@@ -45,7 +52,7 @@ public class ExperienceRestController
 	 */
 	@RequestMapping(value = "/{experienceId}", method = RequestMethod.DELETE)
 	@ResponseBody
-	public void deleteprofile(@PathVariable Integer experienceId) {
+	public void deleteexperience(@PathVariable Integer experienceId) {
 	
 		repository.delete(experienceId);
 	}
@@ -54,7 +61,7 @@ public class ExperienceRestController
 	
 	 @RequestMapping(method = RequestMethod.GET)
 	 @ResponseBody
-	  public Iterable<Experience> listprofiles() {
+	  public Iterable<Experience> listexperiences() {
 	    return repository.findAll();
 	  }
 	 
@@ -64,7 +71,7 @@ public class ExperienceRestController
 		 */
 		@RequestMapping(method = RequestMethod.PUT)
 		@ResponseBody
-		public Experience saveprofile(@RequestBody Experience experience) {
+		public Experience saveexperience(@RequestBody Experience experience) {
 			return repository.save(experience);
 		}
 	

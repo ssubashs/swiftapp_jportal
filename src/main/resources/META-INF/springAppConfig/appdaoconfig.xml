@@ -100,16 +100,18 @@
 	<bean id="dbEMF"
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 		 <property name="dataSource" ref="jportalDS" />
-      <property name="packagesToScan" value="com.jportal.domain" />
+      <property name="packagesToScan" value="com.jportal" />
       <property name="jpaVendorAdapter">
          <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" />
       </property>
       <property name="jpaProperties">
-         <props>
-             <!--         
-            <prop key="hibernate.hbm2ddl.auto">create-drop</prop>
-   			 --> 
+         <props>                      
+            <prop key="hibernate.hbm2ddl.auto">${db.hbm2ddl}</prop>   		
+            <prop key="hibernate.dialect">${db.dialect}</prop>           
+            <prop key="hibernate.hbm2ddl.import_files">${db.import_files}</prop>
+   			 <!-- 
             <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
+              -->
          </props>
       </property>
 
@@ -118,5 +120,6 @@
 	
 
 	<jpa:repositories base-package="com.jportal.service" entity-manager-factory-ref="dbEMF"/>
+	
 
 </beans>

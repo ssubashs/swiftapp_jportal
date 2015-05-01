@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.jportal.model.Profile;
 import com.jportal.model.Technology;
+import com.jportal.service.ProfileRepo;
 import com.jportal.service.TechnologyRepo;
 
 
@@ -20,10 +22,15 @@ public class TechnologyRestController
 	@Autowired
 	private TechnologyRepo repository;
 	
-	@RequestMapping(method = RequestMethod.POST)
+	@Autowired
+	private ProfileRepo profileRepo;
+	
+	@RequestMapping(value = "/{profileId}",method = RequestMethod.POST)
 	@ResponseBody
-	public Technology newtechnology(@RequestBody Technology technology) 
+	public Technology newtechnology(@RequestBody Technology technology,@PathVariable Integer profileId) 
 	{
+		Profile profile = profileRepo.findOne(profileId);
+		technology.setProfile(profile);
 		return repository.save(technology);
 	}
 	

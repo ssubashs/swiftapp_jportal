@@ -36,12 +36,14 @@ public class Doc implements Serializable {
 	@Lob
 	@JsonIgnore
 	private byte[] content;
+	
+	private String docname;
 
-	private String docextn;
-
-	private String docsize;
+	private Long docsize;
 
 	private String doctype;
+	
+	private String description;
 
 	//bi-directional many-to-one association to Profile
 	@ManyToOne
@@ -69,19 +71,11 @@ public class Doc implements Serializable {
 		this.content = content;
 	}
 
-	public String getDocextn() {
-		return this.docextn;
-	}
-
-	public void setDocextn(String docextn) {
-		this.docextn = docextn;
-	}
-
-	public String getDocsize() {
+	public Long getDocsize() {
 		return this.docsize;
 	}
 
-	public void setDocsize(String docsize) {
+	public void setDocsize(Long docsize) {
 		this.docsize = docsize;
 	}
 
@@ -93,12 +87,30 @@ public class Doc implements Serializable {
 		this.doctype = doctype;
 	}
 
+	
+	
+	public String getDocname() {
+		return docname;
+	}
+
+	public void setDocname(String docname) {
+		this.docname = docname;
+	}
+
 	public Profile getProfile() {
 		return this.profile;
 	}
 
 	public void setProfile(Profile profile) {
 		this.profile = profile;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 }

@@ -10,8 +10,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
 
-import org.springframework.data.rest.core.annotation.RestResource;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
@@ -39,6 +37,7 @@ public class Technology implements Serializable {
 	//bi-directional many-to-one association to Profile
 	@ManyToOne
 	@JoinColumn(name="profileid")
+	@JsonIgnore
 	private Profile profile;
 
 	public Technology() {

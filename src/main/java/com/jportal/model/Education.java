@@ -52,6 +52,7 @@ public class Education implements Serializable {
 	//bi-directional many-to-one association to Profile
 	@ManyToOne
 	@JoinColumn(name="profileid")
+	@JsonIgnore
 	private Profile profile;
 
 	public Education() {

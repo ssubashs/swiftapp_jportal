@@ -1,5 +1,3 @@
-create schema `test`;
-
 INSERT INTO `profile` (`profileid`, `firstname`, `lastname`,  `username`) VALUES ('1','subash', 'soundrapandi', 'ssubashs');
 INSERT INTO `profile` (`profileid`, `firstname`, `lastname`,  `username`) VALUES ('2','admin', 'user', 'admin');
 INSERT INTO `profile` (`profileid`, `firstname`, `lastname`,  `username`) VALUES ('3','global', 'user', 'global');
