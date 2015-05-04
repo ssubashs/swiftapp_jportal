@@ -1,0 +1,13 @@
+1) Eclipse: for IDE - download eclipse juno. 
+2) Git repository for code - https://github.com/ssubashs/swiftapp_jportal.git
+3) docs folder -https://github.com/ssubashs/swiftapp_jportal/tree/master/docs 
+	has the list of .json.txt 
+	This has the postman collections needed for testing the rest services.
+	Post man is a chrome plugin tool to test rest services.
+4) Install local dev machine - maven for build 
+5) Tomcat server to deploy the code. 
+6) from end codes to be in folder	- assets/html (all unsecured html content)
+7) templates for content should be in WEB-INF/templates
+8) after signin - appTest.html will be loaded. Change this to reflect your changes. 
+
+

@@ -3,9 +3,11 @@ package com.jportal.web.restcontroller;
 import java.io.IOException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -59,12 +61,47 @@ public class DocRestController
 	 * Select an existing Doc entity
 	 * 
 	 */
-	@RequestMapping(value = "/{DocId}", method = RequestMethod.GET)
+	@RequestMapping(value = "/info/{DocId}", method = RequestMethod.GET)
 	@ResponseBody
 	public Doc loadDoc(@PathVariable Integer DocId) {
 		
 		return repository.findOne(DocId);
 	}
+	
+	/**
+	 * Select an existing Doc entity
+	 * 
+	 */
+	@RequestMapping(value = "/download/{DocId}", method = RequestMethod.GET)
+	@ResponseBody
+	public HttpEntity<byte[]> downloadDoc(@PathVariable Integer DocId) {
+		Doc doc = repository.findOne(DocId);
+		  byte[] documentBody = doc.getContent() ;
+
+		    HttpHeaders header = new HttpHeaders();
+		    if(doc.getDocname().contains(".pdf"))
+		    	header.setContentType(new MediaType("application", "pdf"));
+		    else if(doc.getDocname().contains(".jpeg"))
+		    	header.setContentType(new MediaType("image", "jpeg"));
+		    else if(doc.getDocname().contains(".gif"))
+		    	header.setContentType(new MediaType("image", "gif"));
+		    else if(doc.getDocname().contains(".png"))
+		    	header.setContentType(new MediaType("image", "png"));
+		    else if(doc.getDocname().contains(".tiff"))
+		    	header.setContentType(new MediaType("image", "tiff"));
+		    else if(doc.getDocname().contains(".doc"))		    	
+		    	header.setContentType(new MediaType("application", "msword"));
+		    else	
+		    	header.setContentType(new MediaType("application", "octet-stream"));
+		    
+		    header.set("Content-Disposition",
+		                   "attachment; filename=" + doc.getDocname());
+		    header.setContentLength(documentBody.length);
+
+		    return new HttpEntity<byte[]>(documentBody, header);
+		
+	}
+		
 		
 
 	/**
