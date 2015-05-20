@@ -143,7 +143,7 @@ public class LoginController
 	        //user.setUseraccess(useraccess);
 	        user = profilerepo.save(user);
 	        Userrole userrole = new Userrole("ROLE_USER","Active",user);
-		       // user.addUserrole(userrole);
+		       user.addUserrole(userrole);
 	        
 			
 			
