@@ -10,12 +10,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.jportal.model.Doc;
+import com.jportal.model.Education;
+import com.jportal.model.Experience;
 import com.jportal.model.Jobapplication;
 import com.jportal.model.Profile;
 import com.jportal.model.Profileskill;
+import com.jportal.model.Technology;
+import com.jportal.service.DocRepo;
+import com.jportal.service.EducationRepo;
+import com.jportal.service.ExperienceRepo;
 import com.jportal.service.JobApplicationRepo;
 import com.jportal.service.ProfileRepo;
 import com.jportal.service.ProfileSkillRepo;
+import com.jportal.service.TechnologyRepo;
 
 
 
@@ -31,6 +39,18 @@ public class ProfileRestController
 	
 	@Autowired
 	private JobApplicationRepo jobapplicationRepo;
+	
+	@Autowired
+	private DocRepo docRepo;
+	
+	@Autowired
+	private EducationRepo eduRepo;
+	
+	@Autowired
+	private ExperienceRepo expRepo;
+	
+	@Autowired
+	private TechnologyRepo techRepo;
 	
 	@RequestMapping(method = RequestMethod.POST)
 	@ResponseBody
@@ -71,6 +91,35 @@ public class ProfileRestController
 		
 		return jobapplicationRepo.applicationByProfileid(profileId);
 	}
+	
+	@RequestMapping(value = "/docs/{profileId}", method = RequestMethod.GET)
+	@ResponseBody
+	public List<Doc> loadprofileDocs(@PathVariable Integer profileId) {
+		
+		return docRepo.docsByProfileid(profileId);
+	}
+	
+	@RequestMapping(value = "/education/{profileId}", method = RequestMethod.GET)
+	@ResponseBody
+	public List<Education> loadprofileEducation(@PathVariable Integer profileId) {
+		
+		return eduRepo.eduByProfileid(profileId);
+	}
+	
+	@RequestMapping(value = "/experience/{profileId}", method = RequestMethod.GET)
+	@ResponseBody
+	public List<Experience> loadprofileExperience(@PathVariable Integer profileId) {
+		
+		return expRepo.expByProfileid(profileId);
+	}
+	
+	@RequestMapping(value = "/technology/{profileId}", method = RequestMethod.GET)
+	@ResponseBody
+	public List<Technology> loadprofileTechnology(@PathVariable Integer profileId) {
+		
+		return techRepo.techsByProfileid(profileId);
+	}
+	
 		
 
 	/**

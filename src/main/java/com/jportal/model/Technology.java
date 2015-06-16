@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
+import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -18,6 +19,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
  * 
  */
 @Entity
+@Table(name="technology")
 @NamedQuery(name="Technology.findAll", query="SELECT t FROM Technology t")
 public class Technology implements Serializable {
 	private static final long serialVersionUID = 1L;

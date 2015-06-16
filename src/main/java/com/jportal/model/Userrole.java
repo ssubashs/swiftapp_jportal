@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
+import javax.persistence.Table;
 
 import org.springframework.data.rest.core.annotation.RestResource;
 
@@ -20,6 +21,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
  * 
  */
 @Entity
+@Table(name="userrole")
 @NamedQuery(name="Userrole.findAll", query="SELECT u FROM Userrole u")
 public class Userrole implements Serializable {
 	private static final long serialVersionUID = 1L;

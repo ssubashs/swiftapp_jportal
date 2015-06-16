@@ -1,7 +1,11 @@
 package com.jportal.model;
 
 import java.io.Serializable;
-import javax.persistence.*;
+
+import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
 
 
 /**
@@ -9,6 +13,7 @@ import javax.persistence.*;
  * 
  */
 @Entity
+@Table(name="profileskill")
 @NamedQuery(name="Profileskill.findAll", query="SELECT p FROM Profileskill p")
 public class Profileskill implements Serializable {
 	private static final long serialVersionUID = 1L;
