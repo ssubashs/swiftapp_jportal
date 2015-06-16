@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
+import javax.persistence.Table;
 
 
 /**
@@ -15,6 +16,7 @@ import javax.persistence.NamedQuery;
  * 
  */
 @Entity
+@Table(name="company")
 @NamedQuery(name="Company.findAll", query="SELECT c FROM Company c")
 public class Company implements Serializable {
 	private static final long serialVersionUID = 1L;
