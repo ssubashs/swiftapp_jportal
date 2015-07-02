@@ -11,6 +11,7 @@ import com.jportal.model.Company;
 
 
 public interface CompanyRepo  extends PagingAndSortingRepository<Company,Integer>, Serializable{
+	
 	@Query("select companies from Company companies where companies.companyName like CONCAT('%',:companyName,'%') ")
 	public List<Company> companyByName(@Param("companyName")String companyName);
 

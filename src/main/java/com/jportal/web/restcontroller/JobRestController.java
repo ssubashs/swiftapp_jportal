@@ -82,7 +82,7 @@ public class JobRestController
 	
 	@RequestMapping(value = "/search",method = RequestMethod.GET)
 	@ResponseBody
-	public List<Job> getJobsSearch(@RequestParam(value="zip", required=false) String zip,@RequestParam(value="city", required=false) String city,@RequestParam(value="jobtitle", required=false) String jobtitle) 
+	public List<Job> getJobsSearch(@RequestParam(value="zip", required=false) String zip,@RequestParam(value="city", required=false) String city,@RequestParam(value="jobtitle", required=false) String jobtitle,@RequestParam(value="employmentType", required=false) String employmentType) 
 	{
 		if(jobtitle!=null && city!=null)
 			return jobrepo.jobsByCity_title(city,jobtitle);
@@ -92,6 +92,8 @@ public class JobRestController
 			return jobrepo.jobsByCity(city);
 		else if(zip !=null)
 			return jobrepo.jobsByzip(zip);
+		else if(employmentType !=null)
+			return jobrepo.jobsByemploymentType(employmentType);
 		else
 		return null;
 	}

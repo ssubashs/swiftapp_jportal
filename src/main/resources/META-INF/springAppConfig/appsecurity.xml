@@ -52,6 +52,7 @@
      
       <http auto-config="true" use-expressions="true">                  
         <intercept-url pattern="/applogin/**" access="permitAll" />
+        <intercept-url pattern="/index" access="permitAll" />
         <intercept-url pattern="/applogout" access="permitAll"/>
         <intercept-url pattern="/denied" access="permitAll"/>
         <intercept-url pattern="/api/**" access="permitAll"/>

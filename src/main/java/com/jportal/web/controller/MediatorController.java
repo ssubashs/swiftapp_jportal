@@ -29,6 +29,15 @@ public class MediatorController {
 		return "appTest";
 	}
 	
+	@RequestMapping(value = "/index")
+	public String mapview(Model model)
+	{
+
+		
+		System.out.println("Test controller without login");
+		return "index"; // will load mapview.html from template
+ 	}
+	
 	
 	@RequestMapping(value = "/")
 	public String defaultRequest(Model model)
