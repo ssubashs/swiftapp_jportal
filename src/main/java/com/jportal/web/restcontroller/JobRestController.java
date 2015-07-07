@@ -1,5 +1,6 @@
 package com.jportal.web.restcontroller;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -136,6 +137,22 @@ public class JobRestController
 				return jobrepo.save(job);
 			}
 			return null;	
+		}		
+		
+	}
+	
+	@RequestMapping(value = "/apply",method = RequestMethod.POST)
+	@ResponseBody
+	public Jobapplication applyJob(@RequestBody Jobapplication jobapplication) 
+	{
+		if(jobapplication==null)
+			return null;
+		else
+		{
+			if(jobapplication.getApplieddate()==null)
+				jobapplication.setApplieddate(new Date());
+			
+			return jobapplicationrepo.save(jobapplication);	
 		}		
 		
 	}
