@@ -71,10 +71,18 @@ public class EducationRestController
 		 * Save an existing Education entity
 		 * 
 		 */
-		@RequestMapping(method = RequestMethod.PUT)
+		@RequestMapping(value = "/{profileId}",method = RequestMethod.PUT)
 		@ResponseBody
-		public Education saveEducation(@RequestBody Education education) {
-			return repository.save(education);
+		public Education saveEducation(@RequestBody Education education,@PathVariable Integer profileId) {
+			if(profileId == null || profileId<=0 || education == null || education.getEid() <=0)
+				return null;
+			else
+			{
+				Profile profile = profileRepo.findOne(profileId);
+				education.setProfile(profile);
+				return repository.save(education);
+			}
+			
 		}
 	
 	

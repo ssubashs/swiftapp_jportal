@@ -1,0 +1,133 @@
+{
+	"id": "79e8d21f-e4db-71e8-a0a6-8aaa3d3e6aca",
+	"name": "jportal-education",
+	"timestamp": 1430464319354,
+	"order": [
+		"2fa5b447-ed9d-390e-9963-0a3cf7fb32aa",
+		"85452f96-9b1e-e7fb-7a86-89660f8948ab",
+		"ffc0787d-3a12-00e2-3d16-43b2d34a186b",
+		"fa1be051-cd9c-3ebe-2235-4209df476cac",
+		"f755a26b-5005-ecd5-1789-d406c50d73ea"
+	],
+	"owner": 0,
+	"hasRequests": true,
+	"requests": [
+		{
+			"id": "2fa5b447-ed9d-390e-9963-0a3cf7fb32aa",
+			"headers": "Content-Type: application/json\n",
+			"url": "http://localhost:8080/services/api/education/2",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "PUT",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1438586081642,
+			"name": "update-education",
+			"description": "",
+			"collectionId": "79e8d21f-e4db-71e8-a0a6-8aaa3d3e6aca",
+			"responses": [],
+			"rawModeData": " {\n        \"eid\": 1,\n        \"city\": \"Chennai\",\n        \"country\": \"India\",\n        \"degree\": \"BE\",\n        \"grade\": \"8.23\",\n        \"gradend\": null,\n        \"gradstart\": null,\n        \"school\": \"College of Engineering guindy\",\n        \"state\": \"Tamilnadu\"\n }"
+		},
+		{
+			"collectionId": "79e8d21f-e4db-71e8-a0a6-8aaa3d3e6aca",
+			"id": "85452f96-9b1e-e7fb-7a86-89660f8948ab",
+			"name": "findby-Profileid",
+			"description": "",
+			"url": "http://localhost:8080/services/api/profile/education/1",
+			"method": "GET",
+			"headers": "",
+			"data": [],
+			"dataMode": "params",
+			"timestamp": 0,
+			"responses": [],
+			"version": 2,
+			"preRequestScript": "",
+			"tests": ""
+		},
+		{
+			"collectionId": "79e8d21f-e4db-71e8-a0a6-8aaa3d3e6aca",
+			"id": "f755a26b-5005-ecd5-1789-d406c50d73ea",
+			"name": "create-education",
+			"description": "",
+			"url": "http://localhost:8080/services/api/education/2",
+			"method": "POST",
+			"headers": "Content-Type: application/json\n",
+			"data": [],
+			"dataMode": "raw",
+			"timestamp": 0,
+			"version": 2,
+			"time": 1430465411208,
+			"preRequestScript": "",
+			"tests": "",
+			"rawModeData": "{      \n        \"city\": \"chennai\",\n        \"country\": \"India\",\n        \"degree\": \"Bachelor Engineering\",\n        \"grade\": \"8.3\",\n        \"gradend\": null,\n        \"gradstart\": null,\n        \"school\": \"IIT madras\",\n        \"state\": \"Tamilnadu\"\n}"
+		},
+		{
+			"collectionId": "79e8d21f-e4db-71e8-a0a6-8aaa3d3e6aca",
+			"id": "fa1be051-cd9c-3ebe-2235-4209df476cac",
+			"name": "findall",
+			"description": "",
+			"url": "http://localhost:8080/services/api/education",
+			"method": "GET",
+			"headers": "",
+			"data": [
+				{
+					"key": "file",
+					"value": "",
+					"type": "file"
+				},
+				{
+					"key": "description",
+					"value": "Subash Resume ",
+					"type": "text"
+				},
+				{
+					"key": "filetype",
+					"value": "resume",
+					"type": "text"
+				}
+			],
+			"dataMode": "params",
+			"timestamp": 0,
+			"responses": [],
+			"version": 2,
+			"preRequestScript": "",
+			"tests": ""
+		},
+		{
+			"collectionId": "79e8d21f-e4db-71e8-a0a6-8aaa3d3e6aca",
+			"id": "ffc0787d-3a12-00e2-3d16-43b2d34a186b",
+			"name": "findby-eduid",
+			"description": "",
+			"url": "http://localhost:8080/services/api/education/1",
+			"method": "GET",
+			"headers": "",
+			"data": [
+				{
+					"key": "file",
+					"value": "",
+					"type": "file"
+				},
+				{
+					"key": "description",
+					"value": "Subash Resume ",
+					"type": "text"
+				},
+				{
+					"key": "filetype",
+					"value": "resume",
+					"type": "text"
+				}
+			],
+			"dataMode": "params",
+			"timestamp": 0,
+			"responses": [],
+			"version": 2,
+			"preRequestScript": "",
+			"tests": ""
+		}
+	]
+}

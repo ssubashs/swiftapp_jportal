@@ -69,10 +69,19 @@ public class ExperienceRestController
 		 * Save an existing Experience entity
 		 * 
 		 */
-		@RequestMapping(method = RequestMethod.PUT)
+		@RequestMapping(value = "/{profileId}",method = RequestMethod.PUT)
 		@ResponseBody
-		public Experience saveexperience(@RequestBody Experience experience) {
-			return repository.save(experience);
+		public Experience saveexperience(@RequestBody Experience experience,@PathVariable Integer profileId) {
+			if(profileId == null || profileId<=0 || experience == null || experience.getExpid() <= 0)
+				return null;
+			else
+			{
+				Profile profile = profileRepo.findOne(profileId);
+				experience.setProfile(profile);
+				return repository.save(experience);
+			}
+			
+			
 		}
 	
 	

@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.jportal.model.Experience;
 import com.jportal.model.Profile;
 import com.jportal.model.Technology;
 import com.jportal.service.ProfileRepo;
@@ -69,12 +70,21 @@ public class TechnologyRestController
 		 * Save an existing Technology entity
 		 * 
 		 */
-		@RequestMapping(method = RequestMethod.PUT)
+		
+		@RequestMapping(value = "/{profileId}",method = RequestMethod.PUT)
 		@ResponseBody
-		public Technology savetechnology(@RequestBody Technology technology) {
-			return repository.save(technology);
+		public Technology savetechnology(@RequestBody Technology technology,@PathVariable Integer profileId) {
+			if(profileId == null || profileId<=0 || technology == null || technology.getTid() <=0)
+				return null;
+			else
+			{
+				Profile profile = profileRepo.findOne(profileId);
+				technology.setProfile(profile);
+				return repository.save(technology);
+			}
+			
+			
 		}
-	
 	
 
 }

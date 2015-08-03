@@ -38,13 +38,20 @@ public class CompanyRestController
 	
 	@RequestMapping(value = "/search",method = RequestMethod.GET)
 	@ResponseBody
-	public List<Company> companySearch(@RequestParam(value="name", required=false) String companyName) 
+	public List<Company> companySearch(@RequestParam(value="name", required=false) String companyName,@RequestParam(value="zip", required=false) String zip) 
 	{
-		if(companyName!=null)
+		if(zip !=null)
+		{
+			return repository.companyByZip(zip);
+		}
+		else if(companyName!=null)
+		{
 			return repository.companyByName(companyName);
-		
+		}		
 		else
-		return null;
+		{
+			return null;
+		}
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)

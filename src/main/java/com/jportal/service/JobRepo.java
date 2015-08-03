@@ -20,6 +20,9 @@ public interface JobRepo  extends PagingAndSortingRepository<Job,Integer>, Seria
 
 	@Query("select jobs from Job jobs where jobs.company.city = :city and jobs.jobTitle like CONCAT('%',:jobtitle,'%') ")
 	public List<Job> jobsByCity_title(@Param("city")String city,@Param("jobtitle")String jobtitle);
+	
+	@Query("select jobs from Job jobs where jobs.company.zipcode = :zip and jobs.jobTitle like CONCAT('%',:jobtitle,'%') ")
+	public List<Job> jobsByZip_title(@Param("zip")String zip,@Param("jobtitle")String jobtitle);
 
 	@Query("select jobs from Job jobs where jobs.jobTitle like CONCAT('%',:jobtitle,'%') ")
 	public List<Job> jobsBytitle(@Param("jobtitle")String jobtitle);

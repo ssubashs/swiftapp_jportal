@@ -1,0 +1,177 @@
+{
+	"id": "303f0a88-c3b6-df19-e895-eb6649d0d823",
+	"name": "jportal-docs",
+	"timestamp": 1430463002881,
+	"order": [
+		"85589746-48c3-bf68-c2b4-1600a991885b",
+		"a7c0ba03-ed70-d94c-67fa-453410f3cd74",
+		"04816df4-f815-7545-85e6-8d170eb8c9e1",
+		"48ba5376-34b6-812a-0a8c-f3b11ef447e3",
+		"fe0e11ca-26b1-0af3-310f-31754bc57a41",
+		"62c6b6b6-6160-4984-c982-361532760195"
+	],
+	"owner": 0,
+	"hasRequests": true,
+	"requests": [
+		{
+			"collectionId": "303f0a88-c3b6-df19-e895-eb6649d0d823",
+			"id": "04816df4-f815-7545-85e6-8d170eb8c9e1",
+			"name": "download-docid",
+			"description": "",
+			"url": "http://localhost:8080/services/api/doc/download/1",
+			"method": "GET",
+			"headers": "",
+			"data": [
+				{
+					"key": "file",
+					"value": "",
+					"type": "file"
+				},
+				{
+					"key": "description",
+					"value": "Subash Resume ",
+					"type": "text"
+				},
+				{
+					"key": "filetype",
+					"value": "resume",
+					"type": "text"
+				}
+			],
+			"dataMode": "params",
+			"timestamp": 0,
+			"responses": [],
+			"version": 2,
+			"preRequestScript": "",
+			"tests": ""
+		},
+		{
+			"collectionId": "303f0a88-c3b6-df19-e895-eb6649d0d823",
+			"id": "48ba5376-34b6-812a-0a8c-f3b11ef447e3",
+			"name": "delby-docid",
+			"description": "",
+			"url": "http://localhost:8080/services/api/doc/1",
+			"method": "DELETE",
+			"headers": "",
+			"data": [],
+			"dataMode": "params",
+			"timestamp": 0,
+			"responses": [],
+			"version": 2,
+			"preRequestScript": "",
+			"tests": ""
+		},
+		{
+			"collectionId": "303f0a88-c3b6-df19-e895-eb6649d0d823",
+			"id": "62c6b6b6-6160-4984-c982-361532760195",
+			"name": "uploaddoc",
+			"description": "",
+			"url": "http://localhost:8080/services/api/doc/1",
+			"method": "POST",
+			"headers": "",
+			"data": [
+				{
+					"key": "file",
+					"value": "",
+					"type": "file"
+				},
+				{
+					"key": "description",
+					"value": "Subash Resume ",
+					"type": "text"
+				},
+				{
+					"key": "filetype",
+					"value": "resume",
+					"type": "text"
+				}
+			],
+			"dataMode": "params",
+			"timestamp": 0,
+			"version": 2,
+			"time": 1430463949441,
+			"preRequestScript": "",
+			"tests": ""
+		},
+		{
+			"collectionId": "303f0a88-c3b6-df19-e895-eb6649d0d823",
+			"id": "85589746-48c3-bf68-c2b4-1600a991885b",
+			"name": "findall-docs",
+			"description": "",
+			"url": "http://localhost:8080/services/api/doc",
+			"method": "GET",
+			"headers": "",
+			"data": [
+				{
+					"key": "file",
+					"value": "",
+					"type": "file"
+				},
+				{
+					"key": "description",
+					"value": "Subash Resume ",
+					"type": "text"
+				},
+				{
+					"key": "filetype",
+					"value": "resume",
+					"type": "text"
+				}
+			],
+			"dataMode": "params",
+			"timestamp": 0,
+			"responses": [],
+			"version": 2,
+			"preRequestScript": "",
+			"tests": ""
+		},
+		{
+			"collectionId": "303f0a88-c3b6-df19-e895-eb6649d0d823",
+			"id": "a7c0ba03-ed70-d94c-67fa-453410f3cd74",
+			"name": "findby-Profileid",
+			"description": "",
+			"url": "http://localhost:8080/services/api/profile/docs/1",
+			"method": "GET",
+			"headers": "",
+			"data": [],
+			"dataMode": "params",
+			"timestamp": 0,
+			"responses": [],
+			"version": 2,
+			"preRequestScript": "",
+			"tests": ""
+		},
+		{
+			"collectionId": "303f0a88-c3b6-df19-e895-eb6649d0d823",
+			"id": "fe0e11ca-26b1-0af3-310f-31754bc57a41",
+			"name": "findby-docid",
+			"description": "",
+			"url": "http://localhost:8080/services/api/doc/info/1",
+			"method": "GET",
+			"headers": "",
+			"data": [
+				{
+					"key": "file",
+					"value": "",
+					"type": "file"
+				},
+				{
+					"key": "description",
+					"value": "Subash Resume ",
+					"type": "text"
+				},
+				{
+					"key": "filetype",
+					"value": "resume",
+					"type": "text"
+				}
+			],
+			"dataMode": "params",
+			"timestamp": 0,
+			"version": 2,
+			"time": 1430777077010,
+			"preRequestScript": "",
+			"tests": ""
+		}
+	]
+}

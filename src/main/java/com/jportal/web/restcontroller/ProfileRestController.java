@@ -80,6 +80,36 @@ public class ProfileRestController
 		
 		return profileSkillRepo.skillByProfileid(profileId);
 	}
+	/**
+	 * Select an existing Profile entity
+	 * 
+	 */
+	@RequestMapping(value = "/skills/{profileId}", method = RequestMethod.POST)
+	@ResponseBody
+	public Profileskill saveprofileskill(@PathVariable Integer profileId,@RequestBody Profileskill skill ) {
+		if(skill == null || profileId == null || profileId <= 0)
+		{
+			return null;
+		}
+		return profileSkillRepo.save(skill);
+	}
+	
+	/**
+	 * Select an existing Profile entity
+	 * 
+	 */
+	@RequestMapping(value = "/skills/{profileId}", method = RequestMethod.DELETE)
+	@ResponseBody
+	public String delprofileskill(@PathVariable Integer profileId,@RequestBody Profileskill skill ) {
+		if(skill == null || profileId == null || profileId <= 0)
+		{
+			return "Error data to delete";
+		}
+		profileSkillRepo.delete(skill);
+		return "Successfully Deleted skill ";
+	}
+	
+	
 	
 	/**
 	 * Select an existing Profile entity

@@ -15,4 +15,7 @@ public interface CompanyRepo  extends PagingAndSortingRepository<Company,Integer
 	@Query("select companies from Company companies where companies.companyName like CONCAT('%',:companyName,'%') ")
 	public List<Company> companyByName(@Param("companyName")String companyName);
 
+	@Query("select companies from Company companies where companies.zipcode = :zip")
+	public List<Company> companyByZip(@Param("zip")String zip);
+
 }

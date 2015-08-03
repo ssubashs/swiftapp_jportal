@@ -57,6 +57,36 @@ public class JobRestController
 		return skills;
 	}
 	
+	@RequestMapping(value = "/skills/{jobid}",method = RequestMethod.POST)
+	@ResponseBody
+	public Jobskill saveJobSkill(@RequestBody Jobskill skill,@PathVariable Integer jobid) 
+	{
+		if(skill==null )
+			return null;
+		else
+		{
+			Jobskill updated = jobskillrepo.save(skill);			
+			return updated;	
+		}		
+		
+	}
+	
+	
+	@RequestMapping(value = "/skills",method = RequestMethod.DELETE)
+	@ResponseBody
+	public String delJobSkill(@RequestBody Jobskill skill) 
+	{
+		if(skill==null )
+			return null;
+		else
+		{
+			jobskillrepo.delete(skill);			
+			return "Success";	
+		}		
+		
+	}
+	
+	
 	@RequestMapping(value = "/appliedById/{jobid}",method = RequestMethod.GET)
 	@ResponseBody
 	public List<Jobapplication> getAppliedJobById(@PathVariable Integer jobid) 
@@ -87,6 +117,8 @@ public class JobRestController
 	{
 		if(jobtitle!=null && city!=null)
 			return jobrepo.jobsByCity_title(city,jobtitle);
+		else if(jobtitle!=null && zip!=null)
+			return jobrepo.jobsByZip_title(zip, jobtitle);
 		else if(jobtitle!=null)
 			return jobrepo.jobsBytitle(jobtitle);
 		else if(city!=null)
@@ -98,6 +130,9 @@ public class JobRestController
 		else
 		return null;
 	}
+	
+	
+	
 	
 	@RequestMapping(value = "/for/{companyid}",method = RequestMethod.POST)
 	@ResponseBody
